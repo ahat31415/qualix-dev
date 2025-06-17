@@ -17,7 +17,7 @@ import './App.css';
 //   );
 // }
 
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 // а) Список заявок (`/requests`)
 // б) Создание заявки (`/requests/new`)
 // в) Детальная страница заявки (`/requests/:id`)
@@ -25,7 +25,7 @@ import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
 import AllRequests  from "../pages/AllRequests";
-import Layout from "../widgets/Layout";
+import Layout from "../widgets/Layout/Layout";
 import Home from "../pages/Home";
 import AddRequest from "../pages/AddRequest";
 import EditRequest from "../pages/EditRequest";

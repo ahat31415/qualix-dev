@@ -17,8 +17,8 @@ const RequestForm = (props:aaa) => {
     return (
         <div>
             <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Название заявки</label>
-                <input type="text" className="form-control"
+                <label htmlFor="exampleInputEmail1" className="form-label">Название заявки*</label>
+                <input type="text" className="form-control" required
                        id="exampleInputEmail1"
                        value={title}
                        onChange={ (e) => {
