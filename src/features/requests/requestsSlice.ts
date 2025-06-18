@@ -1,23 +1,20 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-export enum REQUEST_ACTIONS {
-    ADD_REQUEST = 'ADD-REQUEST',
-    EDIT_REQUEST = 'EDIT-REQUEST',
-    DELETE_REQUEST = 'DELETE-REQUEST'
-}
 
 const initialState = {
     requests: [
         {
-            id: '1', title: 'Тестовая заявка', creationDate: new Date(),
+            id: '1', title: 'Тестовая заявка', creationDate: new Date().toISOString(),
             description: 'Эта заявка на получение нового телефона домафона', category: 0,
         },
         {
-            id: '2', title: 'Тестовая заявка2', creationDate: new Date(),
+            id: '2', title: 'Тестовая заявка2', creationDate: new Date().toISOString(),
             description: 'Эта заявка на приобретение айфона', category: 0,
         },
     ]
 }
+
+export const categories = ['Категория 1', 'Категория 2', 'Категория 3', 'Категория 4' ]
 
 export interface RequestData {
     id?: string,
@@ -26,19 +23,6 @@ export interface RequestData {
     category: number
 }
 
-export interface ActionData extends RequestData {
-    type: REQUEST_ACTIONS
-}
-
-// incremented: (state) => {
-//     state.value += 1;
-// },
-// decremented: (state) => {
-//     state.value -= 1;
-// },
-// incrementedByAmount: (state, action: PayloadAction<number>) => {
-//     state.value += action.payload;
-// },
 export const requestSlice = createSlice({
     name: 'request',
     initialState,
@@ -52,7 +36,7 @@ export const requestSlice = createSlice({
                     title: action.payload.title,
                     description: action.payload.description,
                     category: action.payload.category,
-                    creationDate: new Date()
+                    creationDate: new Date().toISOString()
                 };
             }
 
@@ -64,7 +48,7 @@ export const requestSlice = createSlice({
                 title: action.payload.title,
                 description: action.payload.description,
                 category: action.payload.category,
-                creationDate: new Date()
+                creationDate: new Date().toISOString()
             });
 
         },

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import ListGroup from 'react-bootstrap/ListGroup';
 const Navbar = () => {
     return (
-        <nav className="navbar">
-            <ul>
-                <li><Link to="/">Домой</Link></li>
-                <li><Link to="/requests">Все заявки</Link></li>
-                <li><Link to="/requests/new">Добавить заявку</Link></li>
-            </ul>
-        </nav>
+        <div className="flex-column d-flex justify-content-center" style={{ paddingTop: '40px' }}>
+            <ListGroup>
+                <ListGroup.Item><Link to="/">Домой</Link></ListGroup.Item>
+                <ListGroup.Item><Link to="/requests">Все заявки</Link></ListGroup.Item>
+                <ListGroup.Item><Link to="/requests/new">Добавить заявку</Link></ListGroup.Item>
+            </ListGroup>
+        </div>
     );
 };
 

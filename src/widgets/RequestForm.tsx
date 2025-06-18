@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import {RequestData} from "../features/requests/requestsSlice";
+import {categories, RequestData} from "../features/requests/requestsSlice";
+import Form from 'react-bootstrap/Form';
 export interface aaa extends Partial<RequestData>{
     formActionCallback: Function;
 };
@@ -8,48 +9,52 @@ export interface aaa extends Partial<RequestData>{
 const RequestForm = (props:aaa) => {
     const [title, setTitle] = React.useState(props.title || '');
     const [description, setDescription] = React.useState(props.description || '');
-    const [category, setCategory] = React.useState(props.category || '');
+    const [category, setCategory] = React.useState(props.category || '0');
     const navigate = useNavigate();
-    const onRequestSaving = () => {
+    const onRequestSaving = (e: any) => {
+        e.preventDefault();
+        console.log(e)
         props.formActionCallback({title, description, category});
-        navigate('/requests', { replace: true });
     }
+    const selectOptions = categories.map((el, count) =>
+        <option value={count}>{el}</option>)
     return (
-        <div>
-            <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Название заявки*</label>
-                <input type="text" className="form-control" required
-                       id="exampleInputEmail1"
+        <form onSubmit={onRequestSaving}>
+        <div className="mb-3">
+                <label htmlFor="titleInput" className="form-label">Название заявки*</label>
+                <input type="text" className="form-control"
+                       required
+                       id="titleInput"
                        value={title}
                        onChange={ (e) => {
                            setTitle(e.target.value)
                        } }/>
             </div>
             <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Описание*</label>
-                <input type="text" required className="form-control" id="exampleInputPassword1"
+                <label htmlFor="descriptionInput" className="form-label">Описание*</label>
+                <input type="text"
+                       required
+                       className="form-control"
+                       id="descriptionInput"
                        value={description}
                        onChange={ (e) => {
                            setDescription(e.target.value)
                        } }/>
             </div>
-            <div className="mb-3 form-check">
-                <label className="form-check-label" htmlFor="exampleCheck1">Выбор категории</label>
+            <div className="mb-3 ">
+                <label className="form-select-label" htmlFor="select-category">Выбор категории</label>
+                <Form.Select value={category || 0} id="select-category"
+                             onChange={(e) => {
+                                 setCategory(e.target.value)
+                             }}>
 
-                <select className="form-check-input" id="exampleCheck1"
-                        value={category}
-                        onChange={ (e) => {
-                            setCategory(e.target.value)
-                        } }>
-                    <option value="0">Категория 1</option>
-                    <option value="1">Категория 2</option>
-                    <option value="2">Категория 3</option>
-                    <option value="3">Категория 4</option>
-                </select>
+                    { selectOptions }
+                </Form.Select>
+
             </div>
-            <button type="submit" className="btn btn-primary" onClick={ onRequestSaving }>Создать заявку</button>
+            <button type="submit" className="btn btn-primary" >Сохранить</button>
 
-        </div>
+        </form>
     );
 };
 

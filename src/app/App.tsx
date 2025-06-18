@@ -28,7 +28,7 @@ import AllRequests  from "../pages/AllRequests";
 import Layout from "../widgets/Layout/Layout";
 import Home from "../pages/Home";
 import AddRequest from "../pages/AddRequest";
-import EditRequest from "../pages/EditRequest";
+import RequestDetails from "../pages/RequestDetails";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
         <Route path="/" element={ <Layout /> }>
           <Route index element={ <Home /> } />
           <Route path="requests" element={ <AllRequests /> } />
-          <Route path="/requests/:id" element={ <EditRequest /> } />
+          <Route path="/requests/:id" element={ <RequestDetails /> } />
           <Route path="/requests/new" element={< AddRequest />} />
         </Route>
       </Routes>

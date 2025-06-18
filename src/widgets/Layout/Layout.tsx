@@ -9,9 +9,9 @@ const Layout = () => {
     const {layoutContainer} = s;
     return (
         <div className={layoutContainer}>
-            <Container fluid="md">
+            <Container fluid>
                 <Row>
-                    <Col ><Navbar /></Col>
+                    <Col xs={3} md={2} className="px-0" style={{ minWidth: '400px' }}><Navbar /></Col>
                     <Col md="auto"><Outlet /></Col>
                 </Row>
             </Container>
