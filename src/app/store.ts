@@ -34,8 +34,6 @@ export const store = configureStore({
         }),
 });
 
-// Типы для правильной работы TypeScript
-// export type RootState = ReturnType<typeof store.getState>;
 export type RootState = ReturnType<typeof rootReducer>;
 type PersistedState = ReturnType<typeof persistedReducer>;
 export type AppState = PersistedState; // Используем этот тип вместо RootState

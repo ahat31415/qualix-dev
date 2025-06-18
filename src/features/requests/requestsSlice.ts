@@ -57,8 +57,6 @@ export const requestSlice = createSlice({
     },
 });
 
-// Экспортируем actions
 export const {addRequest, editRequest, deleteRequest} = requestSlice.actions;
 
-// Экспортируем reducer
 export default requestSlice.reducer;
