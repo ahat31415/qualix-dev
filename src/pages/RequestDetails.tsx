@@ -1,10 +1,10 @@
 import React from 'react';
-import {Link, redirect, useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../app/hooks";
 import {deleteRequest, editRequest, RequestData, categories} from "../features/requests/requestsSlice";
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import EditRequestPopUpModal from "./EditRequestPopUpModal";
+import EditRequestPopUpModal from "../widgets/EditRequestPopUpModal";
 
 const RequestDetails = () => {
     const dispatch = useAppDispatch();

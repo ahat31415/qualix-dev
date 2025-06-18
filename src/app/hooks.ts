@@ -1,5 +1,5 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import {RootState, AppDispatch, AppState} from '../entities/store';
+import {RootState, AppDispatch, AppState} from './store';
 
 // Типизированные версии стандартных хуков
 export const useAppDispatch = () => useDispatch<AppDispatch>();

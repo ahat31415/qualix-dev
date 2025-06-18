@@ -1,21 +1,6 @@
 import React from 'react';
 import logo from '../logo.svg';
 import './App.css';
-// import { useState } from "react";
-// import NavBar from "./components/NavBar/NavBar";
-// import Main from "./components/Main/Main";
-// import {tempMovieData, tempWatchedData} from "./data.js";
-//
-// export default function App() {
-//   const [movies, setMovies] = useState(tempMovieData);
-//
-//   return (
-//       <>
-//         <NavBar movies={movies} />
-//         <Main movies={movies} tempWatchedData={tempWatchedData}/>
-//       </>
-//   );
-// }
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import AllRequests  from "../pages/AllRequests";

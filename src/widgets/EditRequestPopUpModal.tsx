@@ -2,8 +2,8 @@ import {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React from 'react';
-import RequestForm from "../widgets/RequestForm";
-import {useAppDispatch, useAppSelector} from "../app/hooks";
+import RequestForm from "./RequestForm";
+import {useAppDispatch} from "../app/hooks";
 import {editRequest, RequestData} from '../features/requests/requestsSlice';
 
 function EditRequestPopUpModal(props: RequestData) {
@@ -19,13 +19,11 @@ function EditRequestPopUpModal(props: RequestData) {
         }
     }
 
-    let requestForm =
-        <div>
-            <h1>Редактирование заявки</h1>
-            <RequestForm title={title} description={description} category={category}
-                         formActionCallback={formActionCallback}/>
-        </div>
-    ;
+    let requestForm = <div>
+                                      <h1>Редактирование заявки</h1>
+                                      <RequestForm title={title} description={description} category={category}
+                                                   formActionCallback={formActionCallback}/>
+                                   </div>;
     return (
         <>
             <Button variant="outline-primary" onClick={handleShow}>

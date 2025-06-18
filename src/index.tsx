@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
-// симбиоз эдишн
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { store } from './entities/store';
+import { store } from './app/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import {persistor} from './entities/store'
+import {persistor} from './app/store'
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

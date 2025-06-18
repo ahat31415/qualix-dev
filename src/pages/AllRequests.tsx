@@ -1,8 +1,7 @@
 import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../app/hooks";
+import { useAppSelector} from "../app/hooks";
 import Table from 'react-bootstrap/Table';
-import {store} from "../entities/store";
 
 const AllRequests = () => {
     const requests = useAppSelector((state) => state.requestsPage.requests);

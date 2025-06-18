@@ -1,8 +1,8 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import {categories, RequestData} from "../features/requests/requestsSlice";
 import Form from 'react-bootstrap/Form';
-export interface formProps extends Partial<RequestData>{
+
+export interface formProps extends Partial<RequestData> {
     formActionCallback: Function;
 };
 
@@ -10,7 +10,6 @@ const RequestForm = (props: formProps) => {
     const [title, setTitle] = React.useState(props.title || '');
     const [description, setDescription] = React.useState(props.description || '');
     const [category, setCategory] = React.useState(props.category || '0');
-    const navigate = useNavigate();
     const onRequestSaving = (e: any) => {
         e.preventDefault();
         console.log(e)
@@ -20,15 +19,15 @@ const RequestForm = (props: formProps) => {
         <option value={count}>{el}</option>)
     return (
         <form onSubmit={onRequestSaving}>
-        <div className="mb-3">
+            <div className="mb-3">
                 <label htmlFor="titleInput" className="form-label">Название заявки*</label>
                 <input type="text" className="form-control"
                        required
                        id="titleInput"
                        value={title}
-                       onChange={ (e) => {
+                       onChange={(e) => {
                            setTitle(e.target.value)
-                       } }/>
+                       }}/>
             </div>
             <div className="mb-3">
                 <label htmlFor="descriptionInput" className="form-label">Описание*</label>
@@ -37,9 +36,9 @@ const RequestForm = (props: formProps) => {
                        className="form-control"
                        id="descriptionInput"
                        value={description}
-                       onChange={ (e) => {
+                       onChange={(e) => {
                            setDescription(e.target.value)
-                       } }/>
+                       }}/>
             </div>
             <div className="mb-3 ">
                 <label className="form-select-label" htmlFor="select-category">Выбор категории</label>
@@ -48,12 +47,10 @@ const RequestForm = (props: formProps) => {
                                  setCategory(e.target.value)
                              }}>
 
-                    { selectOptions }
+                    {selectOptions}
                 </Form.Select>
-
             </div>
-            <button type="submit" className="btn btn-primary" >Сохранить</button>
-
+            <button type="submit" className="btn btn-primary">Сохранить</button>
         </form>
     );
 };
