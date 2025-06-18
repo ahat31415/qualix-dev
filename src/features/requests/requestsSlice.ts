@@ -4,13 +4,9 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 const initialState = {
     requests: [
         {
-            id: '1', title: 'Тестовая заявка', creationDate: new Date().toISOString(),
+            id: 'id-1', title: 'Первая тестовая заявка', creationDate: new Date().toISOString(),
             description: 'Эта заявка на получение нового телефона домафона', category: 0,
-        },
-        {
-            id: '2', title: 'Тестовая заявка2', creationDate: new Date().toISOString(),
-            description: 'Эта заявка на приобретение айфона', category: 0,
-        },
+        }
     ]
 }
 

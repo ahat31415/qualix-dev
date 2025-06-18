@@ -2,11 +2,11 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import {categories, RequestData} from "../features/requests/requestsSlice";
 import Form from 'react-bootstrap/Form';
-export interface aaa extends Partial<RequestData>{
+export interface formProps extends Partial<RequestData>{
     formActionCallback: Function;
 };
 
-const RequestForm = (props:aaa) => {
+const RequestForm = (props: formProps) => {
     const [title, setTitle] = React.useState(props.title || '');
     const [description, setDescription] = React.useState(props.description || '');
     const [category, setCategory] = React.useState(props.category || '0');
