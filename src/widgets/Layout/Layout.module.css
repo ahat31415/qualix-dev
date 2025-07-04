@@ -3,5 +3,5 @@
     padding: 20px;
 }
 .layoutNavBarWidth {
-    minWidth: '400px'
+    min-width: 400px;
 }

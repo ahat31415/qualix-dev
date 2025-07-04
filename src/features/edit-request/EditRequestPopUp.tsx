@@ -2,11 +2,11 @@ import {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React from 'react';
-import RequestForm from "./RequestForm";
-import {useAppDispatch} from "../app/hooks";
-import {editRequest, RequestData} from '../features/requests/requestsSlice';
+import RequestForm from "../../entities/request/ui/RequestForm";
+import {useAppDispatch} from "../../app/hooks";
+import {editRequest, RequestData} from '../../entities/request';
 
-function EditRequestPopUpModal(props: RequestData) {
+function EditRequestPopUp(props: RequestData) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -41,7 +41,7 @@ function EditRequestPopUpModal(props: RequestData) {
     );
 }
 
-export default EditRequestPopUpModal;
+export default EditRequestPopUp;
 
 
 

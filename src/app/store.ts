@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import  requestReducer  from "../features/requests/requestsSlice";
+import  requestReducer  from "../entities/request/model/slice";
 import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import {
@@ -12,6 +12,7 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist';
+
 const persistConfig = {
     key: 'root',
     storage,

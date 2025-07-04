@@ -3,11 +3,11 @@ import logo from '../logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
-import AllRequests  from "../pages/AllRequests";
+import AllRequests  from "../pages/all-requests/AllRequests";
 import Layout from "../widgets/Layout/Layout";
-import Home from "../pages/Home";
-import AddRequest from "../pages/AddRequest";
-import RequestDetails from "../pages/RequestDetails";
+import Home from "../pages/home/Home";
+import AddRequest from "../pages/add-request/AddRequest";
+import RequestDetails from "../pages/detail-request/RequestDetails";
 
 function App() {
   return (

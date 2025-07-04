@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {RequestData} from "./types";
 
 const initialState = {
     requests: [
@@ -7,15 +8,6 @@ const initialState = {
             description: 'Эта заявка на получение нового телефона домафона', category: 0,
         }
     ]
-}
-
-export const categories = ['Категория 1', 'Категория 2', 'Категория 3', 'Категория 4' ];
-
-export interface RequestData {
-    id?: string,
-    title: string,
-    description: string,
-    category: number
 }
 
 export const requestSlice = createSlice({
@@ -58,5 +50,4 @@ export const requestSlice = createSlice({
 });
 
 export const {addRequest, editRequest, deleteRequest} = requestSlice.actions;
-
 export default requestSlice.reducer;

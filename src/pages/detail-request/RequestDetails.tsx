@@ -1,33 +1,22 @@
 import React from 'react';
-import {useNavigate, useParams} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../app/hooks";
-import {deleteRequest, editRequest, RequestData, categories} from "../features/requests/requestsSlice";
-import Button from 'react-bootstrap/Button';
+import { useParams} from "react-router-dom";
+import { useAppSelector} from "../../app/hooks";
+import {categories, RequestData, selectRequestById} from "../../entities/request";
 import Table from 'react-bootstrap/Table';
-import EditRequestPopUpModal from "../widgets/EditRequestPopUpModal";
+import EditRequestPopUp from "../../features/edit-request/EditRequestPopUp";
+import DeleteRequest from "../../features/delete-request/DeleteRequest";
 
 const RequestDetails = () => {
-    const dispatch = useAppDispatch();
-    const onDeleting = (request: RequestData) => {
-        dispatch(deleteRequest(request));
-        navigate(`/requests`, {replace: false});
-    }
-    const navigate = useNavigate();
+
     const {id} = useParams();
-    const formActionCallback = (request: RequestData) => {
-        dispatch(editRequest({id, ...request}));
-        navigate('/requests', {replace: true});
-    }
-    const request = useAppSelector(state => {
-        return state.requestsPage.requests.find((el) => el.id == id)
-    });
+    const request = useAppSelector(selectRequestById(id || ''));
 
     return (request ?
             <div style={{ width: '800px' }}>
                 <h1>Детальная страница заявки</h1>
                 <div>
-                    <EditRequestPopUpModal {...request} />
-                    <Button onClick={() => onDeleting(request)} variant="outline-danger">Удалить заявку</Button>
+                    <EditRequestPopUp {...request} />
+                    <DeleteRequest request={request} />
                 </div>
                 <Table striped>
                     <thead>

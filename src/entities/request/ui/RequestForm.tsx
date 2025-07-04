@@ -1,10 +1,10 @@
 import React from 'react';
-import {categories, RequestData} from "../features/requests/requestsSlice";
+import {categories, RequestData} from "../index";
 import Form from 'react-bootstrap/Form';
 
 export interface formProps extends Partial<RequestData> {
     formActionCallback: Function;
-};
+}
 
 const RequestForm = (props: formProps) => {
     const [title, setTitle] = React.useState(props.title || '');

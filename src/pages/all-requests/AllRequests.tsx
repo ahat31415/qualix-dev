@@ -1,16 +1,16 @@
 import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import { useAppSelector} from "../app/hooks";
+import {useAppSelector} from "../../app/hooks";
 import Table from 'react-bootstrap/Table';
+import {allRequests} from "../../entities/request";
 
 const AllRequests = () => {
-    const requests = useAppSelector((state) => state.requestsPage.requests);
+    const requests = useAppSelector(allRequests());
     const elements = requests.map((request) => {
         return <tr key={request.id}>
             <td><Link to={`/requests/${request.id}`}>{request.title}</Link></td>
             <td>{request.creationDate.split('T')[0]}</td>
         </tr>
-
     })
 
     const table = <Table striped>
